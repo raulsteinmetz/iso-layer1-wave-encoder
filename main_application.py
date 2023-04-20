@@ -3,6 +3,7 @@ import os.path
 
 from interface import Interface
 from wave_generator import DataPlotter
+from button import Button, ButtonManager
 
 class app:
     def __init__(self):
@@ -40,6 +41,11 @@ class app:
         except:
             pass
 
+        # buttons
+        self.button_manager = ButtonManager()
+        self.button_manager.add_button(100, 100, 50, 50, (50, 50, 50), "Button", 12, (0, 0, 0))
+        
+
     def run(self):
         while True:
             # event handling
@@ -65,6 +71,12 @@ class app:
                     else:
                         self.text_input += event.unicode
 
+                elif event.type == pygame.MOUSEBUTTONDOWN:
+                    mouse_pos = pygame.mouse.get_pos()
+                    button = self.button_manager.get_clicked(mouse_pos)
+                    if button is not None:
+                        print(f"Button '{button.text}' clicked!")
+
             self.display.fill(self.background_color) # background
             pygame.draw.rect(self.display, (0, 0, 0), self.text_input_box, 2) # text box
             text_surface = self.font.render(self.text_input, True, (0, 0, 0)) # text that's being written
@@ -81,5 +93,11 @@ class app:
                 except pygame.error as e:
                     print(f'Error displaying image: {e}')
 
+            # draw buttons
+            for button in self.button_manager.buttons:
+                button.draw(self.display)
+
+
             # update display
             pygame.display.update()
+
