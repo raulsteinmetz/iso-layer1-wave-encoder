@@ -9,6 +9,9 @@ class DataPlotter:
 
         # convert string to list of integers
         data = [int(d) for d in data_str]
+        data.insert(0, 0)
+
+        print(data)
 
         # plot data as a simple line chart with step function
         plt.step(range(1, len(data) + 1), data, where='pre')
