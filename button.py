@@ -1,4 +1,5 @@
 import pygame
+import description
 
 class Button:
     def __init__(self, x, y, width, height, color, text, font_size, text_color):
@@ -47,3 +48,17 @@ class ButtonManager:
         y = int(self.screen_height * percentageY / 100)
         button = Button(x, y, width, height, color, text, font_size, text_color)
         self.buttons.append(button)
+
+    def button_handler(self, button, app):
+        if (button.text == 'NRZ-I'):
+            app.current_info = description.nrz_i
+        elif (button.text == 'NRZ-L'):
+            app.current_info = description.nrz_l
+        elif (button.text == 'AMI'):
+            app.current_info = description.ami
+        elif (button.text == 'PSEUDOTERNARIO'):
+            app.current_info = description.pseudoternario
+        elif (button.text == 'MANCHESTER'):
+            app.current_info = description.manchester
+        elif (button.text == 'MANCHESTER DIFERENCIAL'):
+            app.current_info = description.manchester_diferencial

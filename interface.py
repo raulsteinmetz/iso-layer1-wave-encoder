@@ -1,6 +1,6 @@
 class Interface:
     MINIMUM_WIDTH = 1080
-    MINIMUM_HEIGHT = 800
+    MINIMUM_HEIGHT = 600
     BUTTON_HEIGHT = 50
     BUTTON_WIDTH = 120
     def get_position(px, py, screenw, screenh):

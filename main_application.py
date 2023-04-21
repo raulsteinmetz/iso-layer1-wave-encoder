@@ -4,6 +4,7 @@ import os.path
 from interface import Interface
 from wave_generator import DataPlotter
 from button import Button, ButtonManager
+import description
 
 class app:
     def __init__(self):
@@ -19,12 +20,13 @@ class app:
 
         # font configuration
         self.font = pygame.font.Font(None, 24)
+        self.font2 = pygame.font.Font(None, 20)
 
         # text input box
         self.text_input_box_width = 400
         self.text_input_box_height = 40
         self.text_input_box = pygame.Rect((self.display.get_width() - self.text_input_box_width) // 3,
-                                           (self.display.get_height() - self.text_input_box_height) // 2,
+                                           (self.text_input_box_height) * 4.5,
                                            self.text_input_box_width,
                                            self.text_input_box_height)
         
@@ -40,25 +42,27 @@ class app:
             pass
 
         # rectangle
-        self.info_rectangle_width = 600
-        self.info_rectangle_height = 150
+        self.info_rectangle_width = 750
+        self.info_rectangle_height = 75
         self.info_rectangle = pygame.Rect((self.display.get_width() - self.text_input_box_width) // 10,
-                                           (self.display.get_height() - self.text_input_box_height) // 10,
+                                           (self.text_input_box_height),
                                            self.info_rectangle_width,
                                            self.info_rectangle_height)
+        
+        self.current_info = ''
 
 
 
         # buttons
         self.button_manager = ButtonManager(Interface.MINIMUM_WIDTH, Interface.MINIMUM_HEIGHT)
-        self.button_manager.add_button(80, 20, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "NRZ-I", 12, (255, 255, 255))
-        self.button_manager.add_button(80, 30, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "NRZ-L", 12, (255, 255, 255))
-        self.button_manager.add_button(80, 40, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "AMI", 12, (255, 255, 255))
-        self.button_manager.add_button(80, 50, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "PSEUDOTERNARIO", 12, (255, 255, 255))
-        self.button_manager.add_button(80, 60, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "MANCHESTER", 12, (255, 255, 255))
-        self.button_manager.add_button(80, 70, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "MANCHESTER DIFERENCIAL", 12, (255, 255, 255))
-        self.button_manager.add_button(80, 80, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "EXTRA 1", 12, (255, 255, 255))
-        self.button_manager.add_button(80, 90, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "EXTRA 2", 12, (255, 255, 255))
+        self.button_manager.add_button(85, 30, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "NRZ-I", 12, (255, 255, 255))
+        self.button_manager.add_button(85, 45, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "NRZ-L", 12, (255, 255, 255))
+        self.button_manager.add_button(85, 60, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "AMI", 12, (255, 255, 255))
+        self.button_manager.add_button(85, 75, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "PSEUDOTERNARIO", 12, (255, 255, 255))
+        self.button_manager.add_button(70, 30, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "MANCHESTER", 12, (255, 255, 255))
+        self.button_manager.add_button(70, 45, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "MANCHESTER DIFERENCIAL", 12, (255, 255, 255))
+        self.button_manager.add_button(70, 60, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "EXTRA 1", 12, (255, 255, 255))
+        self.button_manager.add_button(70, 75, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "EXTRA 2", 12, (255, 255, 255))
     
 
 
@@ -86,18 +90,27 @@ class app:
                     button = self.button_manager.get_clicked(mouse_pos)
                     if button is not None:
                         print(f"Button '{button.text}' clicked!")
+                        self.button_manager.button_handler(button, self)
 
+                        
+            # text input
             self.display.fill(self.background_color) # background
             pygame.draw.rect(self.display, (0, 0, 0), self.text_input_box, 2) # text box
             text_surface = self.font.render(self.text_input, True, (0, 0, 0)) # text that's being written
             text_rect = text_surface.get_rect(center=self.text_input_box.center) # text that's being written
             self.display.blit(text_surface, text_rect) # text that's being written
 
+            # render the text surface
+            text_surface = self.font.render("Digite sinal:", True, (0, 0, 0))
+            left_edge = self.text_input_box.left
+            text_pos = (left_edge - text_surface.get_width() - 10, self.text_input_box.top + 10)
+            self.display.blit(text_surface, text_pos)
+
             # display image
             if self.current_image is not None:
                 try:
                     image_rect = self.current_image.get_rect()
-                    image_pos = ((self.display.get_width() - image_rect.width) // 10, (self.display.get_height() - image_rect.height) // 2 + self.display.get_height() // 4)
+                    image_pos = ((self.display.get_width() - image_rect.width) // 10, (self.display.get_height() - image_rect.height) // 2 + self.display.get_height() // 8)
                     self.display.blit(self.current_image, image_pos)
 
                 except pygame.error as e:
@@ -108,6 +121,9 @@ class app:
 
             # info
             pygame.draw.rect(self.display, (0, 0, 0), self.info_rectangle)
+            text_surface = self.font2.render(self.current_info, True, (255, 255, 255), 8) # text that's being written
+            text_rect = text_surface.get_rect(center=self.info_rectangle.center) # text that's being written
+            self.display.blit(text_surface, text_rect) # text that's being written
 
 
             # update display
