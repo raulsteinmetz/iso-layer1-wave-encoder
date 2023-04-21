@@ -21,12 +21,10 @@ class app:
         self.font = pygame.font.Font(None, 24)
 
         # text input box
-        self.text_input_box_width = 200
+        self.text_input_box_width = 400
         self.text_input_box_height = 40
-        self.text_input_box_px = 40
-        self.text_input_box_py = 40
-        self.text_input_box = pygame.Rect((self.display.get_width() - self.text_input_box_width) // 2,
-                                           (self.display.get_height() - self.text_input_box_height) // 6,
+        self.text_input_box = pygame.Rect((self.display.get_width() - self.text_input_box_width) // 3,
+                                           (self.display.get_height() - self.text_input_box_height) // 2,
                                            self.text_input_box_width,
                                            self.text_input_box_height)
         
@@ -41,10 +39,29 @@ class app:
         except:
             pass
 
+        # rectangle
+        self.info_rectangle_width = 600
+        self.info_rectangle_height = 150
+        self.info_rectangle = pygame.Rect((self.display.get_width() - self.text_input_box_width) // 10,
+                                           (self.display.get_height() - self.text_input_box_height) // 10,
+                                           self.info_rectangle_width,
+                                           self.info_rectangle_height)
+
+
+
         # buttons
-        self.button_manager = ButtonManager()
-        self.button_manager.add_button(100, 100, 50, 50, (50, 50, 50), "Button", 12, (0, 0, 0))
-        
+        self.button_manager = ButtonManager(Interface.MINIMUM_WIDTH, Interface.MINIMUM_HEIGHT)
+        self.button_manager.add_button(80, 20, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "NRZ-I", 12, (255, 255, 255))
+        self.button_manager.add_button(80, 30, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "NRZ-L", 12, (255, 255, 255))
+        self.button_manager.add_button(80, 40, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "AMI", 12, (255, 255, 255))
+        self.button_manager.add_button(80, 50, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "PSEUDOTERNARIO", 12, (255, 255, 255))
+        self.button_manager.add_button(80, 60, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "MANCHESTER", 12, (255, 255, 255))
+        self.button_manager.add_button(80, 70, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "MANCHESTER DIFERENCIAL", 12, (255, 255, 255))
+        self.button_manager.add_button(80, 80, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "EXTRA 1", 12, (255, 255, 255))
+        self.button_manager.add_button(80, 90, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "EXTRA 2", 12, (255, 255, 255))
+    
+
+
 
     def run(self):
         while True:
@@ -53,13 +70,6 @@ class app:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
-                elif event.type == pygame.VIDEORESIZE:
-                    # resize the display surface
-                    self.display = pygame.display.set_mode((event.w, event.h), pygame.RESIZABLE)
-                    # update the text input box position
-                    self.text_input_box.left = (self.display.get_width() - self.text_input_box_width) // 2
-                    self.text_input_box.top = self.display.get_height() // 6
-
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RETURN:
                         print(self.text_input)
@@ -87,15 +97,17 @@ class app:
             if self.current_image is not None:
                 try:
                     image_rect = self.current_image.get_rect()
-                    image_pos = ((self.display.get_width() - image_rect.width) // 2, (self.display.get_height() - image_rect.height) // 2 + self.display.get_height() // 6)
+                    image_pos = ((self.display.get_width() - image_rect.width) // 10, (self.display.get_height() - image_rect.height) // 2 + self.display.get_height() // 4)
                     self.display.blit(self.current_image, image_pos)
 
                 except pygame.error as e:
                     print(f'Error displaying image: {e}')
 
             # draw buttons
-            for button in self.button_manager.buttons:
-                button.draw(self.display)
+            self.button_manager.draw(self.display)
+
+            # info
+            pygame.draw.rect(self.display, (0, 0, 0), self.info_rectangle)
 
 
             # update display

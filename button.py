@@ -26,8 +26,10 @@ class Button:
 
 
 class ButtonManager:
-    def __init__(self):
+    def __init__(self, screen_width, screen_height):
         self.buttons = []
+        self.screen_width = screen_width
+        self.screen_height = screen_height
 
     def draw(self, surface):
         for button in self.buttons:
@@ -40,6 +42,8 @@ class ButtonManager:
 
         return None
     
-    def add_button(self, x, y, width, height, color, text, font_size, text_color):
+    def add_button(self, percentageX, percentageY, width, height, color, text, font_size, text_color):
+        x = int(self.screen_width * percentageX / 100)
+        y = int(self.screen_height * percentageY / 100)
         button = Button(x, y, width, height, color, text, font_size, text_color)
         self.buttons.append(button)

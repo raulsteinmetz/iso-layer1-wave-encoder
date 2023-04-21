@@ -1,0 +1,3 @@
+adicionar "input:" à esquerda do input box
+adicionar descrições dos metodos pra botar na caixa esquerda encima
+implementar conversões
