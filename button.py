@@ -52,13 +52,19 @@ class ButtonManager:
     def button_handler(self, button, app):
         if (button.text == 'NRZ-I'):
             app.current_info = description.nrz_i
+            app.current_encode = 'NRZ-I'
         elif (button.text == 'NRZ-L'):
             app.current_info = description.nrz_l
+            app.current_encode = 'NRZ-L'
         elif (button.text == 'AMI'):
             app.current_info = description.ami
+            app.current_encode = 'AMI'
         elif (button.text == 'PSEUDOTERNARIO'):
             app.current_info = description.pseudoternario
+            app.current_encode = 'PSEUDOTERNARIO'
         elif (button.text == 'MANCHESTER'):
             app.current_info = description.manchester
+            app.curret_encode = 'MANCHESTER'
         elif (button.text == 'MANCHESTER DIFERENCIAL'):
             app.current_info = description.manchester_diferencial
+            app.curret_encode = 'MANCHESTER DIFERENCIAL'

@@ -50,6 +50,7 @@ class app:
                                            self.info_rectangle_height)
         
         self.current_info = ''
+        self.current_encode = 'NRZ-L'
 
 
 
@@ -76,8 +77,7 @@ class app:
                     quit()
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RETURN:
-                        print(self.text_input)
-                        self.dataplt.plot(self.text_input)
+                        self.dataplt.plot(self.text_input, self.current_encode)
                         self.text_input = ""
                         self.current_image = pygame.image.load(self.image_path)
                     elif event.key == pygame.K_BACKSPACE:
