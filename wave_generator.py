@@ -1,4 +1,5 @@
 from matplotlib import pyplot as plt
+import numpy as np
 
 def reverse_signal(signal):
     if signal == 1:
@@ -42,10 +43,45 @@ def pseudot_encode(data):
     return data
 
 def manchester_encode(data):
-    return data
+    encoded_data = []
+    for d in data:
+        if d == 0:
+            encoded_data += [1, 0]
+        else:
+            encoded_data += [0, 1]
+    return encoded_data
+
 
 def diferential_man_encode(data):
     return data
+
+
+def mlt3_encode(binary_array):
+    mlt3_array = []
+    current_level = 0
+    
+    for i in range(len(binary_array)):
+        bit = binary_array[i]
+        if bit == 0:
+            if i > 0 and binary_array[i-1] == 0:
+                mlt3_array.append(0)
+                current_level = 0
+            else:
+                mlt3_array.append(current_level)
+        else:
+            if current_level == 0:
+                mlt3_array.append(1)
+                current_level = 1
+            elif current_level == 1:
+                mlt3_array.append(-1)
+                current_level = -1
+            else:
+                mlt3_array.append(0)
+                current_level = 0
+    
+    return mlt3_array
+
+    
 
 
 class DataPlotter:
@@ -70,23 +106,23 @@ class DataPlotter:
         elif encode == 'MANCHESTER':
             data = manchester_encode(data)
         elif encode == 'MANCHESTER DIFERENCIAL':
-            data = diferential_man_encode(data)                                                                                                                                                    
+            data = diferential_man_encode(data)       
+        elif encode == 'MLT-3':
+            data = mlt3_encode(data)                                                                                                                                             
+
 
 
         data.insert(0, 0) # for ploting pourposes
 
-        print(data)
-
         # plot data as a simple line chart with step function
-        plt.step(range(1, len(data) + 1), data, where='pre')
+        plt.step(range(1, len(data) + 1), data, where='pre', color='red')
 
         # set y-axis ticks and labels
-        if (encode == 'AMI' or encode == 'PSEUDOTERNARIO'):
+        if (encode == 'AMI' or encode == 'PSEUDOTERNARIO' or encode == 'MLT-3'):
             plt.yticks([-1, 0, 1], ['-1', '0', '1'])
         else:
             plt.yticks([0, 1], ["0", "1"])
 
-        # set x-axis ticks and labels
         plt.xticks(range(1, len(data) + 1))
 
         # add a grid to the plot

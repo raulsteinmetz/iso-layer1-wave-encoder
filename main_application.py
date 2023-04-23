@@ -62,7 +62,7 @@ class app:
         self.button_manager.add_button(85, 75, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "PSEUDOTERNARIO", 12, (255, 255, 255))
         self.button_manager.add_button(70, 30, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "MANCHESTER", 12, (255, 255, 255))
         self.button_manager.add_button(70, 45, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "MANCHESTER DIFERENCIAL", 12, (255, 255, 255))
-        self.button_manager.add_button(70, 60, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "EXTRA 1", 12, (255, 255, 255))
+        self.button_manager.add_button(70, 60, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "MLT-3", 12, (255, 255, 255))
         self.button_manager.add_button(70, 75, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "EXTRA 2", 12, (255, 255, 255))
     
 
@@ -128,4 +128,3 @@ class app:
 
             # update display
             pygame.display.update()
-

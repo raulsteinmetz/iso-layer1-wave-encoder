@@ -68,3 +68,6 @@ class ButtonManager:
         elif (button.text == 'MANCHESTER DIFERENCIAL'):
             app.current_info = description.manchester_diferencial
             app.curret_encode = 'MANCHESTER DIFERENCIAL'
+        elif (button.text == 'MLT-3'):
+            app.current_info = description.mlt3
+            app.current_encode = 'MLT-3'
