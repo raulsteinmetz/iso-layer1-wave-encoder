@@ -71,3 +71,7 @@ class ButtonManager:
         elif (button.text == 'MLT-3'):
             app.current_info = description.mlt3
             app.current_encode = 'MLT-3'
+        elif (button.text == 'RZ'):
+            app.current_info = description.rz
+            app.current_encode = 'RZ'
+

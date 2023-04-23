@@ -1,0 +1,4 @@
+RZ (Return-to-Zero) encoding is a type of line encoding method that is used to transmit digital data over communication channels.
+In RZ encoding, a logic one is represented by a pulse with a positive voltage, and a logic zero is represented by a pulse with
+a negative voltage. The signal returns to zero after each pulse, which helps in synchronization and clock recovery.
+

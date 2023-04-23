@@ -5,5 +5,6 @@ pseudoternario = 'Se o sinal anterior foi positivo, o sinal do bit "0" será neg
 manchester = 'Duracao de um bit é dividida pela metade, na primeira metade o bit permanece em um nivel, depois desloca-se'
 manchester_diferencial = 'Existe sempre uma transição no meio do elemento, mas o valor é determinado no início'
 mlt3 = 'Utiliza 3 niveis de sinais e reduz ao maximo o numero de zeros consecutivos'
+rz = 'Apos todo bit, a voltagem retorna a zero'
 
 print(nrz_i)

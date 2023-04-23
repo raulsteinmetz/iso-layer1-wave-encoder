@@ -81,6 +81,10 @@ def mlt3_encode(binary_array):
     
     return mlt3_array
 
+def rz_encode(data):
+    return data
+
+
     
 
 
@@ -108,7 +112,9 @@ class DataPlotter:
         elif encode == 'MANCHESTER DIFERENCIAL':
             data = diferential_man_encode(data)       
         elif encode == 'MLT-3':
-            data = mlt3_encode(data)                                                                                                                                             
+            data = mlt3_encode(data)
+        elif encode == 'RZ':
+            data = rz_encode(data)                                                                                                                                             
 
 
 
@@ -123,6 +129,7 @@ class DataPlotter:
         else:
             plt.yticks([0, 1], ["0", "1"])
 
+        
         plt.xticks(range(1, len(data) + 1))
 
         # add a grid to the plot

@@ -4,7 +4,6 @@ import os.path
 from interface import Interface
 from wave_generator import DataPlotter
 from button import Button, ButtonManager
-import description
 
 class app:
     def __init__(self):
@@ -63,7 +62,7 @@ class app:
         self.button_manager.add_button(70, 30, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "MANCHESTER", 12, (255, 255, 255))
         self.button_manager.add_button(70, 45, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "MANCHESTER DIFERENCIAL", 12, (255, 255, 255))
         self.button_manager.add_button(70, 60, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "MLT-3", 12, (255, 255, 255))
-        self.button_manager.add_button(70, 75, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "EXTRA 2", 12, (255, 255, 255))
+        self.button_manager.add_button(70, 75, Interface.BUTTON_WIDTH, Interface.BUTTON_HEIGHT, (50, 50, 50), "RZ", 12, (255, 255, 255))
     
 
 
