@@ -103,8 +103,13 @@ def mlt3_encode(binary_array):
     
     return mlt3_array
 
-def rz_encode(data):
-    return data
+def dif_bin_encode(data):
+    encoded_data = []
+    last_bit = 0
+    for bit in data:
+        encoded_data.append(bit - last_bit)
+        last_bit = bit
+    return encoded_data
 
 
     
@@ -135,8 +140,8 @@ class DataPlotter:
             data = diferential_man_encode(data)       
         elif encode == 'MLT-3':
             data = mlt3_encode(data)
-        elif encode == 'RZ':
-            data = rz_encode(data)                                                                                                                                             
+        elif encode == 'DIFFERENTIAL BINARY':
+            data = dif_bin_encode(data)                                                                                                                                             
 
 
 
@@ -146,7 +151,7 @@ class DataPlotter:
         plt.step(range(1, len(data) + 1), data, where='pre', color='red')
 
         # set y-axis ticks and labels
-        if (encode == 'AMI' or encode == 'PSEUDOTERNARIO' or encode == 'MLT-3'):
+        if (encode == 'AMI' or encode == 'PSEUDOTERNARIO' or encode == 'MLT-3' or encode == 'DIFFERENTIAL BINARY'):
             plt.yticks([-1, 0, 1], ['-1', '0', '1'])
         else:
             plt.yticks([0, 1], ["0", "1"])
