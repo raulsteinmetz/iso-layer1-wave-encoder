@@ -18,25 +18,36 @@
 
 ### NRZ-L
 O nível da voltagem representa o valor do bit, um nível é selecionado para representar bits zero, enquanto outro é selecionado para representar bits 1
+
 ![image](https://user-images.githubusercontent.com/85199336/234344464-5ee74aa7-fc6d-4d9f-a8c2-4bcf2da693eb.png)
 
 ### NRZ-I
 O nível da voltagem muda para representar um bit 1 e permanece o mesmo para representar um bit 0
+
 ![image](https://user-images.githubusercontent.com/85199336/234344818-84350f7b-11e0-4502-bdfa-d3532ca97f03.png)
 
 ### AMI
 Bit 0 é representado por 0, enquanto um bit 1 é representado por um nível de tensão positivo ou negativo alternado
-![image](https://user-images.githubusercontent.com/85199336/234345007-9d206552-6bdf-4bc7-b09f-5686ae6ea6b8.png)
 
+![image](https://user-images.githubusercontent.com/85199336/234345007-9d206552-6bdf-4bc7-b09f-5686ae6ea6b8.png)
 
 ### PSEUDOTERNARIO
 Bit 1 é representado por 0, enquanto um bit 0 é representado por um nível de tensão positivo ou negativo alternado
+
+![image](https://user-images.githubusercontent.com/85199336/234345239-3c64fc67-9014-4043-8102-de2dc6b2805e.png)
+
 ### MANCHESTER
 Duracao de um bit é dividida pela metade, na primeira metade o bit permanece em um nivel, depois desloca-se, bit 0 é representado por uma transição de descida na voltagem, enquanto um bit 1
 é representado por uma subida na voltagem
+
+![image](https://user-images.githubusercontent.com/85199336/234345493-db6b3f9c-0ec7-422a-ac13-2dcaef797936.png)
+
 ### MANCHESTER DIFERENCIAL
 Existe sempre uma transição no meio do elemento, mas o valor é determinado no início. Se for 0, começa diferente da última voltagem e termina numa voltagem igual,
 enquanto o bit 1 começa na última voltagem e termina numa voltagem diferente
+
+![image](https://user-images.githubusercontent.com/85199336/234345807-667c6a47-4317-4056-b91e-3309ff563d46.png)
+
 ### MLT3
 MLT-3 (Modified Lullabye Transmission Level 3) é uma técnica de codificação de linha usada em sistemas de telecomunicações para transmitir sinais digitais por meio 
 de um meio físico, como um fio de cobre. Na codificação MLT-3, cada bit é representado por um sinal de três níveis. Os três níveis de sinal são tipicamente -1, 0 e +1. 
@@ -49,5 +60,12 @@ bit também for um "0", o nível do sinal fará uma transição para 0 (ou seja,
 consecutivos no sinal transmitido, o que melhora a sincronização e a temporização no receptor. Além disso, a codificação MLT-3 tem um componente DC (corrente contínua) 
 menor do que outras técnicas de codificação de linha, o que reduz o consumo de energia e a interferência eletromagnética. No entanto, a codificação MLT-3 tem uma taxa de 
 dados menor do que outras técnicas que usam mais níveis de sinal, como a codificação 4B/5B.
+
+![image](https://user-images.githubusercontent.com/85199336/234346512-e9b673e5-4565-443c-a63f-61ea6dfbabf9.png)
+
+
 ### DIFFERENTIAL BINARY
 Nessa técnica, cada bit é codificado como a diferença entre o nível de sinal atual e o nível de sinal anterior. Um bit "1" é representado por uma diferença positiva, enquanto um bit "0" é representado por uma diferença negativa.
+
+![image](https://user-images.githubusercontent.com/85199336/234346185-4033c1d2-09fe-44df-a691-9bcd5bfff1d3.png)
+
