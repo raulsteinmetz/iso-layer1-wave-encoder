@@ -4,6 +4,7 @@ import os.path
 from interface import Interface
 from wave_generator import DataPlotter
 from button import Button, ButtonManager
+import description
 
 class app:
     def __init__(self):
@@ -48,7 +49,7 @@ class app:
                                            self.info_rectangle_width,
                                            self.info_rectangle_height)
         
-        self.current_info = ''
+        self.current_info = description.nrz_l
         self.current_encode = 'NRZ-L'
 
 
@@ -88,7 +89,7 @@ class app:
                     mouse_pos = pygame.mouse.get_pos()
                     button = self.button_manager.get_clicked(mouse_pos)
                     if button is not None:
-                        print(f"Button '{button.text}' clicked!")
+                        print(f"\nButton '{button.text}' clicked!\n")
                         self.button_manager.button_handler(button, self)
 
                         

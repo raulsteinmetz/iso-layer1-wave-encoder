@@ -124,7 +124,7 @@ class DataPlotter:
         # convert string to list of integers
         data = [int(d) for d in data_str]
 
-        print(f"\n\nDATA: {data}")
+        print(f"DATA: {data}")
 
         if encode == 'NRZ-I':
             data = nrzi_encode(data)

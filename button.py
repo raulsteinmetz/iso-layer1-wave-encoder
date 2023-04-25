@@ -63,7 +63,7 @@ class ButtonManager:
             app.current_info = description.pseudoternario
             app.current_encode = 'PSEUDOTERNARIO'
         elif (button.text == 'MANCHESTER'):
-            app.current_info = description.pseudoternario
+            app.current_info = description.manchester
             app.current_encode = 'MANCHESTER'
         elif (button.text == 'MANCHESTER DIFERENCIAL'):
             app.current_info = description.manchester_diferencial
