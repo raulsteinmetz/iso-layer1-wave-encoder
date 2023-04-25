@@ -4,7 +4,7 @@
 
 ## Como rodar
 
-### Dependencias
+### Dependências
 !sudo apt install python3 
 
 !sudo apt-get install python-pip
