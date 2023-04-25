@@ -73,12 +73,51 @@ não é tão imune a ruídos quanto outras técnicas de codificação de linha.
 ![image](https://user-images.githubusercontent.com/85199336/234344818-84350f7b-11e0-4502-bdfa-d3532ca97f03.png)
 
 ### AMI
-Bit 0 é representado por 0, enquanto um bit 1 é representado por um nível de tensão positivo ou negativo alternado
+Bit 0 é representado por 0, enquanto um bit 1 é representado por um nível de tensão positivo ou negativo alternado.
+
+Lei de Formação: A lei de formação do AMI é semelhante à do NRZ-L, onde o bit "1" é representado por uma mudança
+de polaridade e o bit "0" é representado por ausência de transição. No entanto, a polaridade da transição é
+alternada a cada bit "1". Por exemplo, o primeiro bit "1" é representado por uma tensão positiva, o segundo bit "1"
+é representado por uma tensão negativa e assim por diante.
+
+Sincronismo: O AMI não usa uma técnica de sincronismo, o que significa que pode ocorrer deslocamento de bit ou
+erros de sincronização em caso de perda de bits ou devido a ruídos.
+
+Componente DC: O AMI tem uma componente DC muito menor em comparação com o NRZ-L, pois as transições no sinal
+resultam em uma média de tensão próxima a zero.
+
+Imunidade a ruídos: O AMI é mais imune a ruídos em comparação com o NRZ-L, pois as transições no sinal reduzem a
+sensibilidade a erros devido a ruídos. No entanto, se ocorrerem muitas transições, isso pode resultar em uma
+alta taxa de erro.
+
+Aplicação prática: O AMI é amplamente utilizado em aplicações de transmissão de dados de alta velocidade, 
+como em redes de computadores, telefonia e equipamentos de comunicação óptica. O AMI é considerado uma 
+técnica de codificação de linha eficiente em termos de largura de banda e é frequentemente usado em conjunto 
+com outras técnicas de codificação de linha, como o Manchester, para aumentar a confiabilidade da transmissão de dados.
+
 
 ![image](https://user-images.githubusercontent.com/85199336/234345007-9d206552-6bdf-4bc7-b09f-5686ae6ea6b8.png)
 
 ### PSEUDOTERNARIO
 Bit 1 é representado por 0, enquanto um bit 0 é representado por um nível de tensão positivo ou negativo alternado
+
+Lei de Formação: A lei de formação do pseudoternário é diferente do NRZ-L e AMI. Nessa técnica, o bit "0" é representado
+por uma transição e o bit "1" é representado pela ausência de transição. O pseudoternário é chamado assim porque, ao contrário
+do método AMI, não há alternância de polaridade para os bits "1", o que o torna "pseudo" em vez de "verdadeiro" ternário.
+
+Sincronismo: O pseudoternário não usa uma técnica de sincronismo, o que significa que pode ocorrer deslocamento de bit ou erros
+de sincronização em caso de perda de bits ou devido a ruídos.
+
+Componente DC: O pseudoternário tem uma componente DC muito menor em comparação com o NRZ-L, pois as transições no sinal resultam
+em uma média de tensão próxima a zero.
+
+Imunidade a ruídos: O pseudoternário é mais imune a ruídos em comparação com o NRZ-L, pois as transições no sinal reduzem a
+sensibilidade a erros devido a ruídos. No entanto, se ocorrerem muitas transições, isso pode resultar em uma alta taxa de erro.
+
+Aplicação prática: O pseudoternário é usado em algumas aplicações de comunicação de dados, como em alguns sistemas de
+telecomunicações e equipamentos de rede. No entanto, o pseudoternário é menos comum do que outras técnicas de codificação de linha,
+como o NRZ-L e AMI, devido às suas características de codificação não convencionais.
+
 ![image](https://user-images.githubusercontent.com/85199336/234347078-691b00a8-e4ba-46b6-a43f-b969cadad13b.png)
 
 
