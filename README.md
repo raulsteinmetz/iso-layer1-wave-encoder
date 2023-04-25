@@ -18,10 +18,17 @@
 
 ### NRZ-L
 O nível da voltagem representa o valor do bit, um nível é selecionado para representar bits zero, enquanto outro é selecionado para representar bits 1
+![image](https://user-images.githubusercontent.com/85199336/234344464-5ee74aa7-fc6d-4d9f-a8c2-4bcf2da693eb.png)
+
 ### NRZ-I
 O nível da voltagem muda para representar um bit 1 e permanece o mesmo para representar um bit 0
+![image](https://user-images.githubusercontent.com/85199336/234344818-84350f7b-11e0-4502-bdfa-d3532ca97f03.png)
+
 ### AMI
 Bit 0 é representado por 0, enquanto um bit 1 é representado por um nível de tensão positivo ou negativo alternado
+![image](https://user-images.githubusercontent.com/85199336/234345007-9d206552-6bdf-4bc7-b09f-5686ae6ea6b8.png)
+
+
 ### PSEUDOTERNARIO
 Bit 1 é representado por 0, enquanto um bit 0 é representado por um nível de tensão positivo ou negativo alternado
 ### MANCHESTER
