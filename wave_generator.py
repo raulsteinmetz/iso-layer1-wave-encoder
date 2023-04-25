@@ -18,7 +18,6 @@ def nrzi_encode(data):
             encoded_array.append(signal)
     return encoded_array
 
-
 def nrzl_encode(data):
     return data
 
@@ -40,7 +39,15 @@ def ami_encode(data):
     return encoded_array
 
 def pseudot_encode(data):
-    return data
+    signal = 1
+    encoded_array = []
+    for bit in data:
+        if bit == 1:
+            encoded_array.append(0)
+        else:
+            encoded_array.append(signal)
+            signal = alternate_signal(signal)
+    return encoded_array
 
 def manchester_encode(data):
     encoded_data = []
@@ -53,7 +60,22 @@ def manchester_encode(data):
 
 
 def diferential_man_encode(data):
-    return data
+    encoded_data = []
+    last_bit = 1
+    for bit in data:
+        if (bit == 1):
+            if (last_bit == 1):
+                encoded_data += [1, 0]
+                last_bit = 0
+            else:
+                encoded_data += [0, 1]
+                last_bit = 1
+        else:
+            if (last_bit == 1):
+                encoded_data += [0, 1]
+            else:
+                encoded_data += [1, 0]
+    return encoded_data
 
 
 def mlt3_encode(binary_array):
@@ -106,6 +128,7 @@ class DataPlotter:
         elif encode == 'AMI':
             data = ami_encode(data)
         elif encode == 'PSEUDOTERNARIO':
+            print("BBBB ")
             data = pseudot_encode(data)
         elif encode == 'MANCHESTER':
             data = manchester_encode(data)
@@ -129,8 +152,10 @@ class DataPlotter:
         else:
             plt.yticks([0, 1], ["0", "1"])
 
-        
-        plt.xticks(range(1, len(data) + 1))
+        if encode == 'MANCHESTER' or encode == 'MANCHESTER DIFERENCIAL':
+            plt.xticks(np.arange(1, len(data), 2))
+        else:
+            plt.xticks(range(1, len(data) + 1))
 
         # add a grid to the plot
         # plt.grid(axis='y')

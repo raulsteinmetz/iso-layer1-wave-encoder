@@ -6,5 +6,3 @@ manchester = 'Duracao de um bit é dividida pela metade, na primeira metade o bi
 manchester_diferencial = 'Existe sempre uma transição no meio do elemento, mas o valor é determinado no início'
 mlt3 = 'Utiliza 3 niveis de sinais e reduz ao maximo o numero de zeros consecutivos'
 rz = 'Apos todo bit, a voltagem retorna a zero'
-
-print(nrz_i)
