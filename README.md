@@ -126,11 +126,52 @@ Duracao de um bit é dividida pela metade, na primeira metade o bit permanece em
 bit 0 é representado por uma transição de descida na voltagem, enquanto um bit 1 é representado por uma subida na
 voltagem.
 
+Lei de Formação: A lei de formação do Manchester é diferente das outras técnicas de codificação de linha. 
+Nessa técnica, um bit "0" é representado pela transição do sinal de um nível para o outro no meio do intervalo de 
+tempo do bit, enquanto um bit "1" é representado por uma transição no início do intervalo de tempo do bit. Isso significa 
+que cada bit é dividido em dois intervalos de tempo iguais, onde a transição ocorre em cada um desses intervalos.
+
+Sincronismo: O Manchester usa uma técnica de sincronismo chamada codificação de bits de início e fim. Isso significa 
+que, no início de cada quadro de dados, é enviado um conjunto de bits especiais que servem como um sinal de sincronização 
+para o receptor. O receptor usa esses bits para sincronizar o relógio com o transmissor e reconhecer o início e o fim de 
+cada quadro de dados.
+
+Componente DC: O Manchester não tem uma componente DC constante, pois há transições frequentes no sinal.
+
+Imunidade a ruídos: O Manchester é mais imune a ruídos em comparação com outras técnicas de codificação de linha, 
+pois cada bit é dividido em dois intervalos de tempo iguais, o que reduz a sensibilidade a erros devido a ruídos.
+No entanto, o Manchester exige uma largura de banda maior do que outras técnicas de codificação de linha.
+
+Aplicação prática: O Manchester é amplamente utilizado em aplicações de transmissão de dados de alta velocidade, 
+como em redes de computadores, sistemas de automação industrial, equipamentos de comunicação óptica, entre outros. 
+O Manchester é uma técnica de codificação de linha eficiente em termos de largura de banda e é frequentemente usado 
+em conjunto com outras técnicas de codificação de linha, como o AMI, para aumentar a confiabilidade da transmissão de dados.
+
 ![image](https://user-images.githubusercontent.com/85199336/234347672-eef4b586-1ce1-4c8c-844b-0ea19907737b.png)
 
 ### MANCHESTER DIFERENCIAL
 Existe sempre uma transição no meio do elemento, mas o valor é determinado no início. Se for 0, começa diferente da última voltagem e termina numa voltagem igual,
-enquanto o bit 1 começa na última voltagem e termina numa voltagem diferente
+enquanto o bit 1 começa na última voltagem e termina numa voltagem diferente.
+Manchester diferencial (também conhecido como Manchester diferencial bipolar) é uma variação do Manchester que tem algumas diferenças em 
+relação à técnica original. As características do método Manchester diferencial são as seguintes:
+
+Lei de Formação: A lei de formação do Manchester diferencial é similar ao Manchester. No entanto, em vez de codificar os dados 
+diretamente com transições de nível, a técnica codifica a mudança de fase no início do intervalo de bit. O bit "1" é representado 
+por uma mudança de fase, enquanto o bit "0" é representado pela ausência de mudança de fase. Além disso, a técnica Manchester 
+diferencial codifica a polaridade da transição em vez do valor do bit.
+
+Sincronismo: O Manchester diferencial usa a mesma técnica de sincronismo que o Manchester, ou seja, a codificação de bits de início e fim.
+
+Componente DC: O Manchester diferencial não tem uma componente DC constante, pois as transições de fase são feitas com polaridades alternadas, 
+gerando uma média de tensão zero.
+
+Imunidade a ruídos: O Manchester diferencial é mais imune a ruídos em comparação com o Manchester e outras técnicas de codificação 
+de linha, pois as transições de fase garantem que a polaridade das transições seja invertida a cada bit, reduzindo a sensibilidade 
+a erros devido a ruídos.
+
+Aplicação prática: O Manchester diferencial é amplamente utilizado em aplicações de transmissão de dados de alta velocidade, 
+especialmente em redes de comunicação óptica e em alguns sistemas de automação industrial. Como outras técnicas de codificação 
+de linha, o Manchester diferencial é usado para garantir a integridade dos dados durante a transmissão, minimizando os erros de transmissão.
 
 ![image](https://user-images.githubusercontent.com/85199336/234345807-667c6a47-4317-4056-b91e-3309ff563d46.png)
 
