@@ -128,7 +128,6 @@ class DataPlotter:
         elif encode == 'AMI':
             data = ami_encode(data)
         elif encode == 'PSEUDOTERNARIO':
-            print("BBBB ")
             data = pseudot_encode(data)
         elif encode == 'MANCHESTER':
             data = manchester_encode(data)
