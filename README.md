@@ -21,12 +21,54 @@
 ## Tipos de Codificação de Ondas implementadas
 
 ### NRZ-L
-O nível da voltagem representa o valor do bit, um nível é selecionado para representar bits zero, enquanto outro é selecionado para representar bits 1
+O nível da voltagem representa o valor do bit, um nível é selecionado para representar bits zero,
+enquanto outro é selecionado para representar bits 1.
+
+Lei de Formação: A lei de formação do NRZ-L é simples - o bit "1" é representado por uma tensão positiva
+e o bit "0" é representado por uma tensão negativa. O nível de tensão é mantido constante durante a duração do bit.
+
+Sincronismo: O NRZ-L não usa uma técnica de sincronismo, o que significa que não há informações adicionais (como um 
+clock ou um sinal de início/fim) no sinal codificado que indiquem o início ou o fim de um byte ou quadro de dados.
+Isso pode levar a problemas de sincronização se ocorrerem erros de transmissão, o que pode resultar em dados corrompidos.
+
+Componente DC: O NRZ-L tem uma componente DC (corrente contínua) significativa, o que significa que há uma quantidade
+substancial de energia de baixa frequência presente no sinal. Isso pode causar problemas para o receptor, como a
+saturação do amplificador ou a polarização do sinal.
+
+Imunidade a ruídos: O NRZ-L não é muito imune a ruídos, pois a presença de uma única transição de bit incorreta pode
+causar erros em vários bits subsequentes. Isso significa que o NRZ-L pode ser mais suscetível a erros de transmissão
+em comparação com outras técnicas de codificação de linha.
+
+Aplicação prática: O NRZ-L é usado em várias aplicações práticas, incluindo transmissão de dados em redes Ethernet,
+em unidades de disco rígido e em transmissão de sinais de vídeo digital. No entanto, ele é frequentemente usado em
+conjunto com outras técnicas de codificação de linha (como Manchester ou AMI) para melhorar a integridade dos dados transmitidos.
 
 ![image](https://user-images.githubusercontent.com/85199336/234344464-5ee74aa7-fc6d-4d9f-a8c2-4bcf2da693eb.png)
 
 ### NRZ-I
-O nível da voltagem muda para representar um bit 1 e permanece o mesmo para representar um bit 0
+O nível da voltagem muda para representar um bit 1 e permanece o mesmo para representar um bit 0.
+
+Lei de Formação: A lei de formação do NRZ-I é semelhante à do NRZ-L - o bit "1" é representado por
+uma mudança de polaridade (ou transição) na tensão e o bit "0" é representado por uma ausência de
+transição na tensão. A diferença é que, no NRZ-I, a polaridade da transição depende do valor do bit
+anterior. Se o bit anterior for "1", a polaridade da transição será invertida e, se o bit anterior 
+for "0", a polaridade da transição será mantida.
+
+Sincronismo: O NRZ-I também não usa uma técnica de sincronismo, o que significa que pode ocorrer 
+deslocamento de bit ou erros de sincronização em caso de perda de bits ou devido a ruídos.
+
+Componente DC: O NRZ-I tem uma componente DC muito menor em comparação com o NRZ-L, pois as 
+transições no sinal resultam em uma média de tensão próxima a zero.
+
+Imunidade a ruídos: O NRZ-I é mais imune a ruídos em comparação com o NRZ-L, pois as transições 
+no sinal reduzem a sensibilidade a erros devido a ruídos. No entanto, se ocorrerem muitas transições, 
+isso pode resultar em uma alta taxa de erro.
+
+Aplicação prática: O NRZ-I é amplamente utilizado em aplicações de transmissão de dados de alta 
+velocidade, como em redes de computadores, telefonia e equipamentos de comunicação óptica. 
+No entanto, como mencionado anteriormente, o NRZ-I pode sofrer problemas de sincronização e 
+não é tão imune a ruídos quanto outras técnicas de codificação de linha.
+
 
 ![image](https://user-images.githubusercontent.com/85199336/234344818-84350f7b-11e0-4502-bdfa-d3532ca97f03.png)
 
@@ -41,8 +83,9 @@ Bit 1 é representado por 0, enquanto um bit 0 é representado por um nível de 
 
 
 ### MANCHESTER
-Duracao de um bit é dividida pela metade, na primeira metade o bit permanece em um nivel, depois desloca-se, bit 0 é representado por uma transição de descida na voltagem, enquanto um bit 1
-é representado por uma subida na voltagem
+Duracao de um bit é dividida pela metade, na primeira metade o bit permanece em um nivel, depois desloca-se,
+bit 0 é representado por uma transição de descida na voltagem, enquanto um bit 1 é representado por uma subida na
+voltagem.
 
 ![image](https://user-images.githubusercontent.com/85199336/234347672-eef4b586-1ce1-4c8c-844b-0ea19907737b.png)
 
