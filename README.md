@@ -37,14 +37,14 @@ Bit 0 é representado por 0, enquanto um bit 1 é representado por um nível de 
 
 ### PSEUDOTERNARIO
 Bit 1 é representado por 0, enquanto um bit 0 é representado por um nível de tensão positivo ou negativo alternado
+![image](https://user-images.githubusercontent.com/85199336/234347078-691b00a8-e4ba-46b6-a43f-b969cadad13b.png)
 
-![image](https://user-images.githubusercontent.com/85199336/234345239-3c64fc67-9014-4043-8102-de2dc6b2805e.png)
 
 ### MANCHESTER
 Duracao de um bit é dividida pela metade, na primeira metade o bit permanece em um nivel, depois desloca-se, bit 0 é representado por uma transição de descida na voltagem, enquanto um bit 1
 é representado por uma subida na voltagem
 
-![image](https://user-images.githubusercontent.com/85199336/234345493-db6b3f9c-0ec7-422a-ac13-2dcaef797936.png)
+![image](https://user-images.githubusercontent.com/85199336/234347672-eef4b586-1ce1-4c8c-844b-0ea19907737b.png)
 
 ### MANCHESTER DIFERENCIAL
 Existe sempre uma transição no meio do elemento, mas o valor é determinado no início. Se for 0, começa diferente da última voltagem e termina numa voltagem igual,
