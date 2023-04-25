@@ -42,3 +42,5 @@ bit também for um "0", o nível do sinal fará uma transição para 0 (ou seja,
 consecutivos no sinal transmitido, o que melhora a sincronização e a temporização no receptor. Além disso, a codificação MLT-3 tem um componente DC (corrente contínua) 
 menor do que outras técnicas de codificação de linha, o que reduz o consumo de energia e a interferência eletromagnética. No entanto, a codificação MLT-3 tem uma taxa de 
 dados menor do que outras técnicas que usam mais níveis de sinal, como a codificação 4B/5B.
+### DIFFERENTIAL BINARY
+Nessa técnica, cada bit é codificado como a diferença entre o nível de sinal atual e o nível de sinal anterior. Um bit "1" é representado por uma diferença positiva, enquanto um bit "0" é representado por uma diferença negativa.
