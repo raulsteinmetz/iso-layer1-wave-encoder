@@ -188,6 +188,14 @@ consecutivos no sinal transmitido, o que melhora a sincronização e a temporiza
 menor do que outras técnicas de codificação de linha, o que reduz o consumo de energia e a interferência eletromagnética. No entanto, a codificação MLT-3 tem uma taxa de 
 dados menor do que outras técnicas que usam mais níveis de sinal, como a codificação 4B/5B.
 
+Sincronismo: O MLT-3 usa a mesma técnica de sincronismo que o Manchester e o Manchester diferencial, ou seja, a codificação de bits de início e fim.
+
+Componente DC: O MLT-3 tem uma componente DC limitada, pois as transições de nível são controladas para evitar grandes deslocamentos de tensão.
+
+Imunidade a ruídos: O MLT-3 é mais imune a ruídos do que outras técnicas de codificação de linha, pois a transmissão de três níveis permite uma maior tolerância a erros de transmissão. Além disso, o MLT-3 é menos suscetível a interferência eletromagnética (EMI) do que outras técnicas de codificação de linha, porque as transições de nível são mais suaves.
+
+Aplicação prática: O MLT-3 é amplamente utilizado em redes de computadores, sistemas de telecomunicações e outras aplicações de transmissão de dados de alta velocidade. O MLT-3 é uma técnica de codificação de linha eficiente em termos de largura de banda e é frequentemente usado em conjunto com outras técnicas de codificação de linha para garantir a integridade dos dados durante a transmissão.
+
 ![image](https://user-images.githubusercontent.com/85199336/234346512-e9b673e5-4565-443c-a63f-61ea6dfbabf9.png)
 
 
