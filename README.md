@@ -202,5 +202,15 @@ Aplicação prática: O MLT-3 é amplamente utilizado em redes de computadores, 
 ### DIFFERENTIAL BINARY
 Nessa técnica, cada bit é codificado como a diferença entre o nível de sinal atual e o nível de sinal anterior. Um bit "1" é representado por uma diferença positiva, enquanto um bit "0" é representado por uma diferença negativa.
 
+Lei de Formação: A lei de formação do Differential Binary é baseada em transições de nível, em que o valor do bit é determinado pela mudança de polaridade em relação ao bit anterior. Se o bit anterior for "0", o bit atual é representado por uma transição de nível de polaridade oposta. Se o bit anterior for "1", o bit atual é representado por uma transição de nível com a mesma polaridade. Por exemplo, se o bit anterior for "0", o bit "1" é representado por uma transição de nível positivo para negativo, enquanto o bit "0" é representado por uma transição de nível negativo para positivo.
+
+Sincronismo: O Differential Binary não utiliza bits de sincronismo para marcar o início e o fim dos dados, mas sim a transição de nível para marcar o início de cada bit. Isso pode tornar o Differential Binary mais suscetível a erros de transmissão.
+
+Componente DC: O Differential Binary tem uma componente DC limitada, pois as transições de nível ocorrem com polaridades alternadas.
+
+Imunidade a ruídos: O Differential Binary é suscetível a erros de transmissão causados por ruídos, pois a transmissão de dados depende da polaridade das transições de nível. Além disso, o Differential Binary pode ser afetado por interferência eletromagnética (EMI).
+
+Aplicação prática: O Differential Binary é utilizado em algumas aplicações de transmissão de dados de alta velocidade, como em algumas interfaces de comunicação serial e em algumas redes de comunicação. No entanto, a técnica é menos comum do que outras técnicas de codificação de linha, devido à sua maior suscetibilidade a erros de transmissão e a interferência eletromagnética.
+
 ![image](https://user-images.githubusercontent.com/85199336/234346185-4033c1d2-09fe-44df-a691-9bcd5bfff1d3.png)
 
